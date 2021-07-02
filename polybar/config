@@ -1,6 +1,7 @@
 [colors]
-rounds = #3e4451
-background = #282c34
+;rounds = #3e4451
+rounds = #2b2f37
+background = #1e222a 
 background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #555
@@ -10,32 +11,34 @@ alert = #bd2c40
 green = #98c379
 
 [bar/example]
+;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 25
 fixed-center = true
 
-background = #282c34
+background = ${colors.background}
 foreground = ${colors.foreground}
 
+line-size = 1
 
-border-size = 5
+border-size = 4
 border-color = ${colors.background}
 
-padding-right = 2
+;padding-right = 2
 
 
-font-0 = CaskaydiaCove Nerd Font:style=SemiBold:pixelsize=11;1
+font-0 = VictorMono Nerd Font:style=Bold:pixelsize=12;1
 font-1 = JetBrainsMono Nerd Font:size=19;5
-font-2 = Material Design Icons:style=Bold:size=14;3
+font-2 = Material Design Icons:style=Bold:size=13;3
 font-3 = unifont:fontformat=truetype:size=13:antialias=true;
-;font-4 = FontAwesome:style=Regular:pixelsize=14;1
+font-4 = FontAwesome:style=Regular:pixelsize=14;1
 
-modules-left =  bspwm round-left polywins round-right
-modules-center = round-left mpd round-right
-modules-right = round-left updates round-right filesystem round-left pulseaudio round-right memory cpu round-left wlan round-right weather date powermenu
+modules-left = bspwm date round-left updates round-right 
+modules-center = round-left polywins round-right
+modules-right = mpd round-left pulseaudio round-right memory cpu round-left wlan round-right powermenu
 
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -122,15 +125,16 @@ ws-icon-3 = 4;%{F#e0a0d0}󰊗
 ws-icon-4 = 5;%{F#61afef}󰩹
 ws-icon-default = 󰒓
 label-margin = 0
-label-separator =󰧞
+;label-separator =󰧞
 
 label-focused = %{F#282c34}%icon%%{F-}
 label-focused-background = #4d4d4d
 label-focused-padding = 1
+label-focused-underline = #efeded
 
 label-occupied = %icon%
 label-occupied-padding = 1
-label-occupied-underline = #fff
+;label-occupied-underline = #fff
 
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
@@ -146,34 +150,44 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
+; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
+; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
 label-unfocused-padding = 2
 
+; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
+; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
 
 
 [module/mpd]
 type = internal/mpd
 format-padding = 1
 format-online = "<icon-prev> <icon-stop> <toggle> <icon-next>"
-format-online-background = ${colors.rounds}
-format-online-padding = 0
+format-online-background = ${colors.background}
+format-online-padding = 1
 format-online-foreground = #ABB2DF
 icon-prev = 󰙤
 icon-stop = 󰙧
@@ -187,7 +201,8 @@ interval = 2
 format-prefix = " "
 format-padding = 1
 format-prefix-foreground = #61afef
-format-underline = #f90000
+format-foreground = #61afef
+;format-underline = #f90000
 label = %percentage:2%%
 
 [module/memory]
@@ -196,21 +211,25 @@ interval = 6
 format-prefix = " "
 format-padding = 1
 format-prefix-foreground = #98c379
-format-underline = #4bffdc
+;format-underline = #4bffdc
+format-foreground = #98c379
 label = %mb_used%
 
 
 [module/wlan]
 type = internal/network
 interface = wlp7s0f4u1
+;interface = wlp1s0f0u8
 interval = 3.0
 
 format-connected-prefix = "  "
 format-connected-prefix-foreground = #ABB2DF
+;format-connected-foreground = #ABB2BF
 format-connected = <label-connected>
+format-connected-foreground = #ABB2DF
 format-connected-background = ${colors.rounds}
 format-connected-padding = 1
-format-connected-underline = #9f78e1
+;format-connected-underline = #9f78e1
 label-connected = %essid%
 
 format-disconnected =
@@ -242,21 +261,27 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
+
 [module/date]
 type = internal/date
-interval = 5
-
-date =
-date-alt = " %Y-%m-%d"
-
-time = %H:%M
-time-alt = %H:%M:%S
-
-format-prefix = 
-format-prefix-foreground = #98c
-format-underline = #0a6cf5
-format-padding = 1
-label = %date% %time%
+interval = 60
+date = %a %d %b
+time = %l:%M %p
+label = "%date% %time% "
+format = <label>
+format-foreground = #9ce
+;format-foreground = #edfefe
+;format-margin = 1
+format-prefix = 󰃰
+format-prefix-padding = 1
+;format-prefix-underline = ${colors.color6}
+format-prefix-foreground = #9ce
+;format-prefix-background = ${colors.color1}
+;label =  %time%
+;label-underline = ${colors.color6}
+;label-foreground = ${colors.color3}
+;label-background = ${colors.color1}
+label-padding = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -348,6 +373,25 @@ animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
 [module/powermenu]
 
 type = custom/text
@@ -364,8 +408,9 @@ exec = sudo xbps-install -S > /dev/null 2>&1; ~/.local/bin/xbps-updates
 format = <label>
 interval = 4600 
 label =󰏖 %output% 
-label-padding = 2
-label-foreground = #BF616A
+label-padding = 0
+;label-foreground = #BF616A
+label-foreground = #fca2aa
 label-background = ${colors.rounds}
 
 [module/weather]
@@ -379,6 +424,7 @@ format = <label>
 format-padding = 1
 format-prefix = "󰖕"
 format-prefix-foreground = #aafaff
+format-foreground = #aafaff
 
 [module/cava]
 type = custom/script
@@ -403,12 +449,14 @@ content-foreground = ${colors.rounds}
 type = custom/script
 exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
 format = <label>
-format-background = #3E4451
+format-background = #2b2f37
 format-padding = 0
 format-margin = 0
 label = %output%
 label-padding = 0
 tail = true
+
+
 
 [settings]
 screenchange-reload = true
