@@ -144,8 +144,9 @@ XF86AudioLowerVolume
     pactl -- set-sink-volume 0 -5%
 
 XF86AudioMute
-#    amixer -q set Master toggle
     pactl -- set-sink-mute @DEFAULT_SINK@ toggle
+
+# PowerMenu Script
 super + shift + q
     rofi -show power-menu -modi power-menu:~/.config/rofi/rofi-power-menu/rofi-power-menu
 
