@@ -1,0 +1,115 @@
+
+! Colors
+!NOT onedark
+!
+*background: #161821 
+*foreground: #c6c8d1
+*cursorColor: #c6c8d1 
+
+! [Dark Colors}
+*color0: #161821
+*color8: #6b7089
+! [Red] 
+*color1: #e27878
+*color9: #e98989 
+
+! [Green] 
+*color2: #b4be82
+*color10: #c0ca8e
+
+! [Yellow] 
+*color3: #e2a478
+*color11: #e9b189
+
+! [Blue] 
+*color4: #84a0c6
+*color12: #91acd1
+
+! [Magenta] 
+*color5: #a093c7
+*color13: #ada0d3
+
+! [Cyan]
+*color6: #89b8c2
+*color14: #95c4ce
+
+! [White]
+*color7: #c6c8d1
+*color15: #d2d4de 
+
+
+/* Fonts */
+! DO NOT CHANGE THE ORDER
+
+! URXVT APPEARANCE
+URxvt.font:   xft:JetBrainsMono Nerd Font:pixelsize=15:style=SemiBold,xft:Noto Color Emoji:style=Regular,xft:Symbola:style=Regular,xft:FontAwesome:style=Regular,xft:Material Design Icons Regular:style=Regular,JoyPixels:style=Regular;all-the-icons:style=Regular
+URxvt.boldFont:  xft:JetBrainsMono Nerd Font:pixelsize=15:style=Bold,xft:Noto Color Emoji:style=Regular,xft:Symbola:style=Regular,xft:FontAwesome:style=Regular,xft:Material Design Icons Regular:style=Regular,JoyPixels:style=Regular
+URxvt.italicFont:  xft:JetBrainsMono Nerd Font:pixelsize=15:style=Italic,xft:Noto Color Emoji:style=Regular,xft:Symbola:style=Regular,xft:FontAwesome:style=Regular,xft:Material Design Icons Regular:style=Regular,JoyPixels:style=Regular
+URxvt.boldItalicfont: xft:JetBrainsMono Nerd Font:pixelsize=15:style=Bold Italic,xft:Noto Color Emoji:style=Regular,xft:Symbola:style=Regular,xft:FontAwesome:style=Regular,xft:Material Design Icons Regular:style=Regular,JoyPixels:style=Regular
+URxvt.geometry:                   84x16
+URxvt.internalBorder:             2
+URxvt.cursorBlink:                true
+URxvt.cursorUnderline:            true
+URxvt.saveline:                   32768
+URxvt.scrollBar:                  false
+URxvt.scrollBar_right:            true
+URxvt.scrollBar_floating:         false
+URxvt.scrollstyle:                plain
+URxvt.urgentOnBell:               false
+URxvt.shading:                    199
+!Urxvt.background:                #373E4D
+URxvt.depth:                      32
+!URxvt.background:                 rgba:0000/0000/0000/4444
+!URxvt.tintcolor:                 #000000
+!URxvt.blurRadius:                12
+!URxvt.transparent:               false
+URxvt.iso14755:                   false
+URxvt.iconFile:                   /home/mxtest/.icons/gladient/term.png
+! Uncomment if to much font spacing
+!URxvt.letterSpace: -1
+
+! URXVT EXTENSIONS
+URxvt.perl-ext-common:            default,clipboard,url-select,tabbedex
+
+! TABBEDEX
+URxvt.tabbedex.no-tabbedex-keys:  yes
+URxvt.tabbedex.new-button:        false
+URXvt.tabbedex.reopen-on-close:   yes
+URxvt.tabbedex.autohide:          yes
+URxvt.tabbedex.tabbar-fg:         5
+URxvt.tabbedex.tabbar-bg:         0
+URxvt.tabbedex.tab-fg:            10
+URxvt.tabbedex.tab-bg:            0
+URxvt.tabbedex.bell-fg:           0
+URxvt.tabbedex.bell-bg:           0
+URxvt.tabbedex.bell-tab-fg:       0
+URxvt.tabbedex.bell-tab-bg:       0
+URxvt.tabbedex.title-fg:          14
+URxvt.tabbedex.title-bg:          0
+URxvt.keysym.Control-Shift-T:     perl:tabbedex:new_tab
+URxvt.keysym.Control-Shift-R:     perl:tabbedex:rename_tab
+URxvt.keysym.Control-Shift-W:     perl:tabbedex:kill_tab
+URxvt.keysym.Control-Next:        perl:tabbedex:next_tab
+URxvt.keysym.Control-Prior:       perl:tabbedex:prev_tab
+URxvt.keysym.Control-Shift-Next:  perl:tabbedex:move_tab_right
+URxvt.keysym.Control-Shift-Prior: perl:tabbedex:move_tab_left
+
+! FONT
+URxvt.resize-font.step: 1
+URxvt.keysym.Control-minus:       resize-font:smaller
+URxvt.keysym.Control-plus:        resize-font:bigger
+URxvt.keysym.Control-equal:       resize-font:reset
+URxvt.keysym.Control-question:    resize-font:show
+
+! CLIPBOARD
+URxvt.clipboard.copycmd:          xclip -i -selection clipboard
+URxvt.clipboard.pastecmd:         xclip -o -selection clipboard
+URxvt.keysym.M-h:                 perl:clipboard:copy
+URxvt.keysym.M-j:                 perl:clipboard:paste
+
+! URL
+URxvt.keysym.M-u:                 perl:url-select:select_next
+URvxt.url-select.button:          2
+URxvt.url-select.launcher:        firefox-bin
+URxvt.url-select.underline:       true
+
