@@ -3,10 +3,10 @@
 ![bspwm Rice](https://raw.githubusercontent.com/primalkaze/bspwm-dots/main/screenshot.png)
 
 
-##These dotfiles are for my rice configurations.
-- I have used the Iceberg Color Scheme
+#These dotfiles are for my rice configurations.
+- I have used the Iceberg Color Scheme.
 
-##Used Stuff
+#Used Stuff
 - [Polybar](https://github.com/polybar/polybar) = A fast and easy to use statusbar. 
 - [vim](https://www.vim.org/) = A useful text editor that i mostly prefer. 
 - [rxfetch](https://github.com/Mangeshrex/rxfetch) = Custom made system-info fetch tool. 
