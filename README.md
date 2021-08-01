@@ -2,6 +2,7 @@
 
 ![bspwm Rice](https://raw.githubusercontent.com/primalkaze/bspwm-dots/main/screenshot.png)
 
+
 ##These dotfiles are for my rice configurations.
 - I have used the Iceberg Color Scheme
 
